@@ -1,0 +1,34 @@
+# Step 1 - Retrieve a list of repositories
+
+The list of GitHub repositories is obtained using https://seart-ghs.si.usi.ch/
+The following filters were applied: 
+ - Created at: before 2021-01-01
+ - Last commit at: after 2021-01-01
+ - Number of commits: min 100
+ - Number of stars: min 100
+ - Exclude forks: true
+
+Retrieval date: 2022-01-24
+The resulting csv file is "repositories.csv"
+
+
+# Step 2 - Retrieve GitHub workflows
+
+For each repository, we extracted the content of its ".github/workflows" folder.
+Here are the steps we followed to make this process faster:
+ - Create an empty folder; 
+ - Change directory to that folder;
+ - Initialize an empty git repository;
+ - Set its remote origin:  "git remote add origin URL";
+ - Enable sparse checkout: "git config core.sparsecheckout true"
+ - Select folder(s) to checkout: "echo '.github/workflows' >> .git/info/sparse-checkout";
+ - Pull default branch: "git pull origin BRANCH"
+
+This process is performed by the "Extract repositories" notebook.
+
+
+# Step 3 - Analyse yaml files to retrieve workflows, jobs and steps
+
+This last step explores the downloaded repositories and extracts data from their workflow files.
+The process is performed by the "Extract workflows" and "Extract workflow data" notebooks. 
+These notebooks output data files into the "data" folder.
