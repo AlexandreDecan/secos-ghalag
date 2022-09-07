@@ -2,13 +2,13 @@
 
 The list of GitHub repositories is obtained using https://seart-ghs.si.usi.ch/
 The following filters were applied: 
- - Created at: before 2021-01-01
- - Last commit at: after 2021-01-01
+ - Created at: before 2022-01-01
+ - Last commit at: after 2022-01-01
  - Number of commits: min 100
  - Number of stars: min 100
  - Exclude forks: true
 
-Retrieval date: 2022-01-24
+Retrieval date: 2022-09-05
 The resulting csv file is "repositories.csv"
 
 
@@ -24,11 +24,17 @@ Here are the steps we followed to make this process faster:
  - Select folder(s) to checkout: "echo '.github/workflows' >> .git/info/sparse-checkout";
  - Pull default branch: "git pull origin BRANCH"
 
-This process is performed by the "Extract repositories" notebook.
+This process is performed by the "Extract repositories" notebook and may take a long time!
 
 
 # Step 3 - Analyse yaml files to retrieve workflows, jobs and steps
 
-This last step explores the downloaded repositories and extracts data from their workflow files.
+This step explores the downloaded repositories and extracts data from their workflow files.
 The process is performed by the "Extract workflows" and "Extract workflow data" notebooks. 
 These notebooks output data files into the "data" folder.
+
+
+# Step 4 - Retrieve releases for identified Actions
+
+This step aims to retrieve the "official" releases (as reported on GitHub) for the Actions identified
+during the previous step. The process is performed by the "Extract releases" notebook.
