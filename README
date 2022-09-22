@@ -12,6 +12,6 @@ The following datasets are available:
  - jobs.csv.gz associates the data available in jobs with their workflow files; 
  - steps.csv.gz associates the data available in steps with their workflow files and jobs; 
  - releases.csv.gz contains the releases extracted from GitHub for the various Actions found in the steps; 
- - lag.csv.gz exposes the mapping between Actions referred in steps and releases of Actions.
+ - lag.csv.xz exposes the mapping between Actions referred in steps and releases of Actions (file is compressed using xz instead of gzip to limit its space on disk).
  
 Details about the content of these files and how to manipulate them can be found in the notebooks.
